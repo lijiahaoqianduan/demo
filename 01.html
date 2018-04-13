@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+  /*
+  Promise
+  箭头函数的this
+  闭包 ： 封闭的包裹
+
+  */
+  // function foo(){
+  //   var a = 123;
+  //   a++;
+  //   return a;
+  // }
+  // var ret = foo();
+  // ret = foo();
+  // console.log(ret)
+  // ------------------------------------
+  // function foo(){
+  //   var a = 123;
+  //   function inner () {
+  //     a++;
+  //     return a;
+  //   }
+  //   return inner;
+  // }
+  // var fn = foo();
+  // var ret = fn();
+  // ret = fn();
+  // console.log(ret)
+
+  // 闭包可以达到的效果是：即开放有封闭
+  // 闭包的组成：内层函数体和内层函数所处的环境（也就是外层函数的作用域）
+  // 闭包的应用场景：保护数据；缓存中间状态值；延长变量的生命周期
+  // function giveMoney(){
+  //   var total = 100000;
+  //   var per = 300;
+  //   return function(){
+  //     total -= per;
+  //     return per;
+  //   }
+  // }
+  // var getMoney = giveMoney();
+  // var ret = getMoney();
+  // ret = getMoney();
+  // console.log(ret)
+
+  </script>
+</head>
+<body>
+  <input type="button" value="投票">
+  <input type="button" value="投票">
+  <input type="button" value="投票">
+  <input type="button" value="投票">
+  <input type="button" value="投票">
+  <input type="button" value="投票">
+  <input type="button" value="投票">
+  <input type="button" value="投票">
+  <input type="button" value="投票">
+  <input type="button" value="投票">
+  <script type="text/javascript">
+    var aInput = document.getElementsByTagName('input');
+    // for(var i =0;i<aInput.length;i++){
+    //   aInput[i].onclick = (function(){
+    //     var n = 0;
+    //     return function(){
+    //       ++n;
+    //       console.log(n)
+    //     }
+    //   })();
+    // }
+    for(var i =0;i<aInput.length;i++){
+      aInput[i].num = 0;
+      aInput[i].onclick = function(){
+        this.num++;
+        console.log(this.num)
+      }
+    }
+  </script>
+</body>
+</html>
